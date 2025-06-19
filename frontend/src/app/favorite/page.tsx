@@ -1,17 +1,17 @@
+import FavoriteNews from '@/widgets/favorite-news';
 import Header from '@/widgets/header';
-import News from '@/widgets/news';
 import { Container, Flex } from '@mantine/core';
 
-export default function HomePage() {
+export default function FavoritePage() {
     return (
         <Flex
             className="w-full h-screen"
             direction="column">
             <Header />
             <Container
-                className="min-h-full w-full"
+                className="h-full w-full"
                 size="lg">
-                <News />
+                <FavoriteNews />
             </Container>
         </Flex>
     );
