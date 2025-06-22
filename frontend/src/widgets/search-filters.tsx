@@ -1,11 +1,6 @@
 import { Grid, Select } from '@mantine/core';
-import { DatePickerInput } from '@mantine/dates';
 import { useMediaQuery } from '@mantine/hooks';
-import {
-    IconCalendar,
-    IconSearch,
-    IconSortAscending,
-} from '@tabler/icons-react';
+import { IconSearch, IconSortAscending } from '@tabler/icons-react';
 import { DateType, SearchType, SortType } from './search-news';
 
 interface SearchFiltersProps {
@@ -27,7 +22,7 @@ export default function SearchFilters({
 }: SearchFiltersProps) {
     const matches = useMediaQuery('(min-width: 768px)');
 
-    const span = matches ? 4 : 12;
+    const span = matches ? 6 : 12;
 
     return (
         <Grid className="w-full">
@@ -57,20 +52,6 @@ export default function SearchFilters({
                     onChange={(searchItem) => {
                         if (searchItem) setSearch(searchItem as SearchType);
                     }}
-                />
-            </Grid.Col>
-            <Grid.Col span={span}>
-                <DatePickerInput
-                    variant="filled"
-                    radius="md"
-                    leftSection={<IconCalendar size={16} />}
-                    clearable
-                    valueFormat="YYYY-MM-DD"
-                    type="range"
-                    label="Сортировка по датам"
-                    placeholder="Выберите даты от и до"
-                    value={dates}
-                    onChange={setDates}
                 />
             </Grid.Col>
         </Grid>

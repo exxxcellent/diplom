@@ -9,16 +9,16 @@ const fetchBySearch = async (
     q: string,
     sort: SortType,
     search: SearchType,
-    dates: DateType | null,
+    // dates: DateType | null,
     page?: number
 ) => {
     const sortParam = chooseSortType(sort);
     const searchParam = chooseSearchType(search);
-    const from = dates ? dates[0] : null;
-    const to = dates ? dates[1] : null;
+    // const from = dates ? dates[0] : null;
+    // const to = dates ? dates[1] : null;
 
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/news/everything?q=${q}&page=${page}&sortBy=${sortParam}&searchIn=${searchParam}&from=${from}&to=${to}`
+        `${process.env.NEXT_PUBLIC_API_URL}/news/everything?q=${q}&page=${page}&sortBy=${sortParam}&searchIn=${searchParam}`
     );
 
     if (!res.ok) {
@@ -43,7 +43,7 @@ export const useBySearch = (
         refetch,
     } = useQuery<ApiResponse<ArticleType>>({
         queryKey: ['search', q, page],
-        queryFn: () => fetchBySearch(q, sort, search, dates, page),
+        queryFn: () => fetchBySearch(q, sort, search, page),
         throwOnError: true,
     });
 
