@@ -33,7 +33,6 @@ export default function SearchNews({ q }: SearchNewsProps) {
         q,
         sort,
         search,
-        dates,
         activePage
     );
 
