@@ -3,9 +3,8 @@ import { useBySource } from '@/shared/api/use-by-source';
 import { Source } from '@/shared/types/source';
 import Article from '@/shared/ui/article';
 import SearchArticle from '@/shared/ui/search-article';
-import { Button, Flex, Title } from '@mantine/core';
+import { Flex, Title } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
-import Link from 'next/link';
 
 interface SourceNews {
     source: Source;
@@ -36,9 +35,9 @@ export default function SourceNews({ source }: SourceNews) {
                         fw={600}>
                         {source.name}
                     </Title>
-                    <Link href={`/source/${source.id}`}>
+                    {/* <Link href={`/source/${source.id}`}>
                         <Button variant="transparent">Больше...</Button>
-                    </Link>
+                    </Link> */}
                 </Flex>
             )}
             {news && !isError && (
