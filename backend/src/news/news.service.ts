@@ -8,14 +8,13 @@ export class NewsService {
     async getTop() {
         try {
             const response = await fetch(
-                `${this.baseUrl}/top-headlines?country=us`,
+                `${this.baseUrl}/everything?language=ru&searchIn=description&q=рос&sortBy=publishedAt&pageSize=10`,
                 {
                     headers: {
                         Authorization: this.apiKey,
                     },
                 },
             ).then((res) => res.json());
-            console.log(response);
             if (response.status === 'error') throw new BadRequestException();
             return response;
         } catch (error) {
@@ -46,7 +45,7 @@ export class NewsService {
         if (!q) throw new BadRequestException();
         try {
             const response = await fetch(
-                `${this.baseUrl}/everything?pageSize=20&q=${q}&page=${page}&sortBy=${sort}&searchIn=${search}`,
+                `${this.baseUrl}/everything?pageSize=20&q=${q}&page=${page}&sortBy=${sort}&searchIn=${search}&language=ru`,
                 {
                     headers: {
                         Authorization: this.apiKey,

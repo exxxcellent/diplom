@@ -47,7 +47,7 @@ export default function SearchFilters({
                     leftSection={<IconSearch size={16} />}
                     label="Поиск по"
                     placeholder="Искать в ..."
-                    data={['Название', 'Описание', 'Контент']}
+                    data={['Название', 'Описание']}
                     defaultValue={search}
                     onChange={(searchItem) => {
                         if (searchItem) setSearch(searchItem as SearchType);

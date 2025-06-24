@@ -52,27 +52,23 @@ export default function SearchNews({ q }: SearchNewsProps) {
             direction="column"
             align="start"
             gap="md">
-            {news?.articles.length !== 0 && (
-                <Title
-                    className="text-left !w-full border-b border-b-gray-200 py-3"
-                    order={1}
-                    fw={600}>
-                    По запросу {q} найдено {news?.totalResults} результатов
-                </Title>
-            )}
-            {news?.articles.length !== 0 && (
-                <SearchFilters
-                    dates={dates}
-                    sort={sort}
-                    search={search}
-                    setSearch={setSearch}
-                    setDates={setDates}
-                    setSort={setSort}
-                />
-            )}
+            <Title
+                className="text-left !w-full border-b border-b-gray-200 py-3"
+                order={1}
+                fw={600}>
+                По запросу {q} найдено {news?.totalResults} результатов
+            </Title>
+            <SearchFilters
+                dates={dates}
+                sort={sort}
+                search={search}
+                setSearch={setSearch}
+                setDates={setDates}
+                setSort={setSort}
+            />
             {news?.articles.length === 0 && (
                 <Flex
-                    className="min-h-full w-full"
+                    className="h-full w-full"
                     align="center"
                     direction="column"
                     justify="center"
@@ -82,10 +78,10 @@ export default function SearchNews({ q }: SearchNewsProps) {
                         color={`${colorScheme === 'light' ? 'gray' : 'white'}`}
                     />
                     <Text
-                        className="!text-4xl"
-                        fw={700}
+                        className="!text-4xl text-center"
+                        fw={400}
                         color={`${colorScheme === 'light' ? 'gray' : 'white'}`}>
-                        По запросу {q} ничего не найдено
+                        К сожалению, по вашему запросу ничего не найдено
                     </Text>
                 </Flex>
             )}

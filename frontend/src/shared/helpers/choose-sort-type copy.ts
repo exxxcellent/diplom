@@ -6,7 +6,5 @@ export const chooseSearchType = (search: SearchType) => {
             return 'content';
         case 'Название':
             return 'title';
-        case 'Описание':
-            return 'description';
     }
 };

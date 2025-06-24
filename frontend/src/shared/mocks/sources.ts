@@ -1,6 +1,10 @@
 import { Source } from '../types/source';
 
 export const sources: Source[] = [
+    {
+        id: 'lenta',
+        name: 'Lenta.ru',
+    },
     { id: 'nbc-news', name: 'NBC News' },
     {
         id: 'associated-press',
